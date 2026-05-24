@@ -1,0 +1,158 @@
+{
+  "studioName": "ZAVANA HOME STUDIO",
+  "packages": [
+    {
+      "id": "wedding-cinematic",
+      "title": "Wedding Cinematic Video",
+      "category": "wedding",
+      "image": "assets/images/wedding/wedding-cinematic.jpg",
+      "desc": "Dokumentasi video cinematic untuk momen pernikahan dengan konsep visual modern dan storytelling elegan.",
+      "price": "IDR 2.700.000",
+      "features": ["Full day video shooting", "Cinematic editing", "Mastering video final"]
+    },
+    {
+      "id": "prewed-outdoor-basic",
+      "title": "Prewedding Outdoor Basic",
+      "category": "prewedding",
+      "image": "assets/images/prewedding/prewed-basic.jpg",
+      "desc": "Sesi foto prewedding outdoor dengan konsep sederhana dan natural untuk kebutuhan personal atau media sosial.",
+      "price": "IDR 500.000",
+      "features": ["Durasi 1 jam", "Maksimal 2 outfit", "1 lokasi pemotretan", "Softcopy foto", "Tambahan biaya transportasi opsional"]
+    },
+    {
+      "id": "prewed-outdoor-premium",
+      "title": "Prewedding Outdoor Premium",
+      "category": "prewedding",
+      "image": "assets/images/prewedding/prewed-premium.jpg",
+      "desc": "Paket prewedding outdoor dengan konsep lebih fleksibel dan hasil visual yang lebih eksklusif.",
+      "price": "IDR 1.500.000",
+      "features": ["Maksimal 3 outfit", "1 lokasi utama", "Softcopy foto resolusi tinggi", "Frame 14R", "Bisa tanpa frame (penyesuaian harga)"]
+    },
+    {
+      "id": "wedding-katholik",
+      "title": "Wedding Complete Katholik",
+      "category": "wedding",
+      "image": "assets/images/wedding/wedding-katholik.jpg",
+      "desc": "Dokumentasi lengkap dari persiapan, pemberkatan gereja, hingga resepsi dengan konsep visual elegan.",
+      "price": "IDR 4.800.000",
+      "originalPrice": "IDR 5.800.000",
+      "features": ["Liputan full day (hingga 24.00)", "Album jumbo 35x35 cm", "Cetak foto 4R (100 lembar)", "Frame 10R & 12R", "Flashdisk 16GB & Softcopy", "Dokumentasi keluarga & grup"]
+    },
+    {
+      "id": "akad-resepsi-essential",
+      "title": "Akad & Resepsi Essential",
+      "category": "wedding",
+      "image": "assets/images/wedding/akad-resepsi.jpg",
+      "desc": "Dokumentasi pernikahan mulai dari akad hingga resepsi malam dengan penyimpanan digital.",
+      "price": "IDR 2.800.000",
+      "features": ["Liputan akad hingga resepsi", "Softcopy foto resolusi tinggi", "Flashdisk 16GB"]
+    },
+    {
+      "id": "wedding-muslim",
+      "title": "Wedding Complete Muslim",
+      "category": "wedding",
+      "image": "assets/images/wedding/wedding-muslim.jpg",
+      "desc": "Dokumentasi lengkap dari persiapan akad hingga resepsi malam dengan konsep visual modern.",
+      "price": "IDR 4.800.000",
+      "originalPrice": "IDR 5.800.000",
+      "features": ["Dokumentasi full day", "Album jumbo 35x35 cm", "Cetak foto 4R (100 lembar)", "Frame 10R & 12R", "Flashdisk 16GB & Softcopy"]
+    },
+    {
+      "id": "akad-muslim",
+      "title": "Akad Nikah Muslim",
+      "category": "wedding",
+      "image": "assets/images/wedding/akad-muslim.jpg",
+      "desc": "Dokumentasi khusus untuk prosesi akad nikah dengan hasil foto profesional dan penyimpanan digital.",
+      "price": "IDR 1.800.000",
+      "features": ["Dokumentasi akad nikah", "Softcopy foto resolusi tinggi", "Flashdisk 16GB", "Tambahan biaya transportasi opsional"]
+    },
+    {
+      "id": "group-studio",
+      "title": "Group Studio Session",
+      "category": "studio",
+      "image": "assets/images/studio/group-studio.jpg",
+      "desc": "Sesi foto studio modern dengan sistem self-photo menggunakan remote dan monitor preview pribadi.",
+      "price": "IDR 350.000",
+      "features": ["Durasi 30 menit", "Maksimal 4 orang", "Self-photo studio", "Remote control camera", "Monitor preview"]
+    },
+    {
+      "id": "prewed-studio",
+      "title": "Prewedding Studio Session",
+      "category": "studio",
+      "image": "assets/images/studio/prewed-studio.jpg",
+      "desc": "Sesi foto prewedding studio dengan konsep minimal modern menggunakan sistem self-photo studio.",
+      "price": "IDR 350.000",
+      "features": ["Durasi 30 menit", "Maksimal 4 orang", "Self-photo studio", "Remote control camera", "Monitor preview"]
+    },
+    {
+      "id": "family-studio",
+      "title": "Family Studio Session",
+      "category": "studio",
+      "image": "assets/images/studio/family-studio.jpg",
+      "desc": "Sesi foto keluarga di studio dengan konsep hangat dan modern menggunakan sistem self-photo.",
+      "price": "IDR 350.000",
+      "features": ["Durasi 30 menit", "Maksimal 4 orang", "Self-photo studio", "Remote control camera", "Monitor preview"]
+    },
+    {
+      "id": "wedding-signature",
+      "title": "Wedding Signature",
+      "category": "wedding",
+      "image": "assets/images/wedding/wedding-signature.jpg",
+      "desc": "Dokumentasi pernikahan lengkap dengan tambahan frame eksklusif dan penyimpanan digital.",
+      "price": "IDR 3.800.000",
+      "features": ["Dokumentasi akad/pemberkatan hingga resepsi", "Softcopy foto", "Flashdisk 16GB", "Frame 10R dan 12R"]
+    },
+    {
+      "id": "wedding-basic",
+      "title": "Wedding Basic",
+      "category": "wedding",
+      "image": "assets/images/wedding/wedding-basic.jpg",
+      "desc": "Paket dokumentasi sederhana untuk prosesi pemberkatan atau akad nikah.",
+      "price": "IDR 1.800.000",
+      "features": ["Dokumentasi akad/pemberkatan", "Softcopy foto", "Flashdisk 16GB"]
+    },
+    {
+      "id": "wedding-standard",
+      "title": "Wedding Standard",
+      "category": "wedding",
+      "image": "assets/images/wedding/wedding-standard.jpg",
+      "desc": "Dokumentasi pernikahan mulai dari pemberkatan hingga resepsi dengan hasil visual profesional.",
+      "price": "IDR 2.800.000",
+      "features": ["Dokumentasi pemberkatan hingga resepsi", "Softcopy foto", "Flashdisk 16GB"]
+    },
+    {
+      "id": "wedding-premium",
+      "title": "Wedding Premium",
+      "category": "wedding",
+      "image": "assets/images/wedding/wedding-premium.jpg",
+      "desc": "Paket dokumentasi wedding dengan tambahan frame eksklusif dan hasil editing premium.",
+      "price": "IDR 3.200.000",
+      "features": ["Softcopy foto", "Flashdisk 16GB", "Frame 10R"]
+    },
+    {
+      "id": "holy-communion",
+      "title": "Holy Communion Studio",
+      "category": "studio",
+      "image": "assets/images/studio/holy-communion.jpg",
+      "desc": "Sesi foto komuni di studio dengan konsep clean dan elegan menggunakan sistem self-photo studio.",
+      "price": "IDR 250.000",
+      "features": ["Durasi 30 menit", "Maksimal 4 orang", "Self-photo studio", "Remote control camera", "Monitor preview"]
+    }
+  ],
+  "blogs": [
+    {
+      "id": "blog-1",
+      "title": "5 Tips Memilih Lokasi Prewedding Outdoor yang Sinematik",
+      "date": "24 Mei 2026",
+      "image": "assets/images/fotobloogs/foto-01.jpg",
+      "content": "Memilih lokasi prewedding seringkali menjadi tantangan tersendiri bagi calon pengantin. Ada banyak hal yang perlu dipertimbangkan untuk mendapatkan hasil foto yang sinematik dan bercerita.\n\nPertama, perhatikan arah cahaya matahari (golden hour). Lokasi seperti padang sabana atau perbukitan akan terlihat luar biasa jika difoto pada pukul 06.00 pagi atau 16.30 sore.\n\nKedua, sesuaikan dengan kepribadian Anda. Jika Anda dan pasangan menyukai petualangan, menggunakan properti seperti mobil Jeep klasik di alam terbuka dapat menjadi pilihan yang sangat estetis dan tak lekang oleh waktu."
+    },
+    {
+      "id": "blog-2",
+      "title": "Mengapa ZAVANA Memilih Konsep Dark Cinematic?",
+      "date": "28 Mei 2026",
+      "image": "assets/images/fotobloogs/foto-02.jpg",
+      "content": "Banyak yang bertanya mengapa warna foto kami dominan gelap. Jawabannya sederhana: Emosi.\n\nDengan meredupkan latar belakang, kita akan secara otomatis fokus pada wajah, ekspresi, dan kehangatan dari subjek foto. Gaya ini memastikan sebuah foto tidak lekang oleh waktu dan selalu terlihat layaknya poster film premium kelas atas."
+    }
+  ]
+}
