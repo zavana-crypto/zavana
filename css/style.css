@@ -1199,6 +1199,41 @@ a {
     box-shadow: 0 15px 35px rgba(255, 122, 0, 0.5);
 }
 
+/* --- BACK TO TOP BUTTON --- */
+.back-to-top {
+    position: fixed;
+    bottom: 100px; /* Ditempatkan sedikit di atas tombol WA */
+    right: 30px;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.back-to-top:hover {
+    background-color: var(--accent-orange);
+    color: var(--bg-color);
+    border-color: var(--accent-orange);
+    transform: translateY(-5px);
+}
+
 /* --- BLOG SECTION --- */
 .blog-grid {
     display: grid;
@@ -1413,5 +1448,12 @@ a {
     .toast-notification {
         width: 90%;
         text-align: center;
+    }
+    .back-to-top {
+        bottom: 80px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
     }
 }
