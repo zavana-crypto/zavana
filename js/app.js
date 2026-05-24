@@ -411,4 +411,27 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // --- SHARE WEBSITE LOGIC ---
+    const shareBtns = document.querySelectorAll('.share-website-btn');
+    shareBtns.forEach(btn => {
+        btn.addEventListener('click', async (e) => {
+            e.preventDefault();
+            const shareData = {
+                title: document.title,
+                text: 'Kunjungi ZAVANA HOME STUDIO - Fotografi & Videografi Premium!',
+                url: window.location.href
+            };
+            try {
+                if (navigator.share) {
+                    await navigator.share(shareData);
+                } else {
+                    await navigator.clipboard.writeText(window.location.href);
+                    showToast("Tautan website berhasil disalin!");
+                }
+            } catch (err) {
+                console.error("Error sharing:", err);
+            }
+        });
+    });
 });
