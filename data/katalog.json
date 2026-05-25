@@ -3,12 +3,12 @@
   "packages": [
     {
       "id": "wedding-cinematic",
-      "title": "Wedding Cinematic Video",
+      "title": "Wedding Video (Pilih Opsi)",
       "category": "wedding",
       "image": "assets/images/wedding/wedding-cinematic.jpg",
-      "desc": "Dokumentasi video cinematic untuk momen pernikahan dengan konsep visual modern dan storytelling elegan.",
+      "desc": "Dokumentasi video pernikahan dengan harga yang sama. Anda dapat memilih salah satu gaya video sesuai kebutuhan: Video Liputan Full Acara atau Video Cinematic Highlight.",
       "price": "IDR 2.700.000",
-      "features": ["Full day video shooting", "Cinematic editing", "Mastering video final"]
+      "features": ["OPSI 1: Video Liputan Full (1-1.5 jam, rekam seluruh momen)", "OPSI 2: Video Cinematic (3-5 menit, kualitas visual premium & elegan)", "Pilih salah satu dari opsi di atas"]
     },
     {
       "id": "prewed-outdoor-basic",
