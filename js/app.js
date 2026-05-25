@@ -1,4 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // --- SCROLL PROGRESS BAR ---
+    const progressContainer = document.createElement('div');
+    progressContainer.className = 'scroll-progress-container';
+    const progressBar = document.createElement('div');
+    progressBar.className = 'scroll-progress-bar';
+    progressContainer.appendChild(progressBar);
+    document.body.prepend(progressContainer);
+
+    window.addEventListener('scroll', () => {
+        const windowScroll = document.documentElement.scrollTop || document.body.scrollTop;
+        const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrollPercent = (windowScroll / windowHeight) * 100;
+        progressBar.style.width = scrollPercent + '%';
+    });
+
     // Cinematic fade-in effect on load
     document.body.style.opacity = '0';
     document.body.style.transition = 'opacity 1.5s ease-in';
@@ -21,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, revealOptions);
 
     // Observe static elements
-    document.querySelectorAll('.service-card, .faq-item, .footer-container, .testimonial-card, .submit-testimonial').forEach(el => {
+    document.querySelectorAll('.service-card, .faq-item, .footer-container, .testimonial-card, .submit-testimonial, .pricing-teaser .container, .photo-row-section, .gallery-img').forEach(el => {
         el.classList.add('reveal');
         revealOnScroll.observe(el);
     });
@@ -342,6 +357,127 @@ document.addEventListener('DOMContentLoaded', () => {
                     testimonialGrid.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
                 }
             }, 5000);
+        });
+    }
+
+    // --- GLOBAL LIGHTBOX (ZOOM FOTO) ---
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox-modal';
+    lightbox.innerHTML = `
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    `;
+    document.body.appendChild(lightbox);
+
+    const lightboxImg = lightbox.querySelector('#lightbox-img');
+    const lightboxClose = lightbox.querySelector('.lightbox-close');
+
+    const openLightbox = (src) => {
+        lightboxImg.src = src;
+        lightbox.style.display = 'flex';
+        setTimeout(() => lightbox.classList.add('show'), 10);
+        document.body.style.overflow = 'hidden'; // Matikan scroll latar belakang
+    };
+
+    const closeLightbox = () => {
+        lightbox.classList.remove('show');
+        setTimeout(() => lightbox.style.display = 'none', 400);
+        document.body.style.overflow = '';
+    };
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && lightbox.classList.contains('show')) closeLightbox(); });
+
+    // Terapkan Lightbox ke halaman Portofolio (semua gambar dengan class .gallery-img)
+    document.querySelectorAll('.gallery-img').forEach(img => {
+        img.addEventListener('click', () => openLightbox(img.src));
+    });
+
+    // --- PHOTO GALLERY AUTO SLIDE & DRAG LOGIC ---
+    const photoRow = document.querySelector('.photo-row');
+    if (photoRow) {
+        photoRow.style.cursor = 'grab'; // Menambahkan ikon kursor tangan
+        const scrollStep = 260; // Jarak geser mendekati lebar 1 foto
+        
+        // 1. Fitur Auto-Slide (Berjalan Otomatis)
+        let autoSlideGallery = setInterval(() => {
+            if (photoRow.scrollLeft + photoRow.clientWidth >= photoRow.scrollWidth - 10) {
+                photoRow.scrollTo({ left: 0, behavior: 'smooth' }); // Kembali ke awal jika mentok
+            } else {
+                photoRow.scrollBy({ left: scrollStep, behavior: 'smooth' });
+            }
+        }, 2500); // Geser otomatis setiap 2.5 detik
+
+        // Jeda animasi saat kursor di atas galeri (hover) agar foto bisa dilihat
+        photoRow.addEventListener('mouseenter', () => clearInterval(autoSlideGallery));
+        photoRow.addEventListener('mouseleave', () => {
+            autoSlideGallery = setInterval(() => {
+                if (photoRow.scrollLeft + photoRow.clientWidth >= photoRow.scrollWidth - 10) {
+                    photoRow.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    photoRow.scrollBy({ left: scrollStep, behavior: 'smooth' });
+                }
+            }, 2500);
+        });
+
+        // 2. Fitur Drag-to-Scroll (Bisa ditarik/digeser dengan klik Mouse di Laptop)
+        let isDown = false;
+        let isDragging = false;
+        let startX, scrollLeft;
+
+        const endDrag = () => {
+            isDown = false;
+            photoRow.style.scrollSnapType = 'x mandatory'; // Kembalikan efek magnet (snap)
+            photoRow.style.cursor = 'grab';
+            photoRow.classList.remove('is-dragging'); // Aktifkan kembali efek Mac OS Dock
+            setTimeout(() => { isDragging = false; }, 50); // Jeda reset agar tidak bentrok dengan klik Lightbox
+        };
+
+        photoRow.addEventListener('mousedown', (e) => {
+            isDown = true;
+            isDragging = false;
+            photoRow.classList.add('is-dragging'); // Matikan sementara efek Mac OS Dock saat ditarik
+            photoRow.style.scrollSnapType = 'none'; // Matikan magnet agar tarikan mulus
+            photoRow.style.cursor = 'grabbing';
+            startX = e.pageX - photoRow.offsetLeft;
+            scrollLeft = photoRow.scrollLeft;
+        });
+        photoRow.addEventListener('mouseleave', endDrag);
+        photoRow.addEventListener('mouseup', endDrag);
+        photoRow.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            isDragging = true;
+            const x = e.pageX - photoRow.offsetLeft;
+            const walk = (x - startX) * 1.5; // Kecepatan sensitivitas tarikan mouse
+            photoRow.scrollLeft = scrollLeft - walk;
+        });
+
+        // 3. Efek Zoom & Fokus saat foto masuk ke area pandang (Cover Flow Effect)
+        const photoObserverOptions = {
+            root: photoRow,
+            threshold: 0.5 // Foto akan zoom & terang ketika minimal 50% bagiannya terlihat
+        };
+        const photoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('focused');
+                } else {
+                    entry.target.classList.remove('focused');
+                }
+            });
+        }, photoObserverOptions);
+
+        photoRow.querySelectorAll('img').forEach(img => photoObserver.observe(img));
+
+        // 4. Terapkan Lightbox ke Gallery Slider di Home
+        photoRow.querySelectorAll('img').forEach(img => {
+            img.style.cursor = 'zoom-in';
+            img.addEventListener('click', (e) => {
+                if (isDragging) { e.preventDefault(); return; } // Abaikan klik jika pengguna sedang men-drag slider
+                openLightbox(img.src);
+            });
         });
     }
 
