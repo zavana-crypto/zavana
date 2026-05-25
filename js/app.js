@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, revealOptions);
 
     // Observe static elements
-    document.querySelectorAll('.service-card, .faq-item, .footer-container, .testimonial-card, .submit-testimonial, .pricing-teaser .container, .photo-row-section, .gallery-img').forEach(el => {
+    document.querySelectorAll('.service-card, .faq-item, .footer-container, .testimonial-card, .submit-testimonial, .pricing-teaser .container, .photo-row-section, .gallery-img, .certification-badge').forEach(el => {
         el.classList.add('reveal');
         revealOnScroll.observe(el);
     });
@@ -389,8 +389,8 @@ document.addEventListener('DOMContentLoaded', () => {
     lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && lightbox.classList.contains('show')) closeLightbox(); });
 
-    // Terapkan Lightbox ke halaman Portofolio (semua gambar dengan class .gallery-img)
-    document.querySelectorAll('.gallery-img').forEach(img => {
+    // Terapkan Lightbox ke halaman Portofolio dan Sertifikat
+    document.querySelectorAll('.gallery-img, .cert-zoom').forEach(img => {
         img.addEventListener('click', () => openLightbox(img.src));
     });
 
