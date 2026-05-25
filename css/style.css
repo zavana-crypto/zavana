@@ -615,8 +615,10 @@ a {
 .pricing-img {
     height: 350px;
     background-color: var(--bg-color);
+    background-size: contain;
+    background-repeat: no-repeat;
     background-size: cover;
-    background-position: center 15%;
+    background-position: center;
     border-bottom: 1px solid var(--border-color);
 }
 
@@ -766,14 +768,16 @@ a {
 }
 
 .about-founder-info {
-    text-align: center;
-    margin-top: -15px; /* Margin negatif agar tanda tangan menempel & tumpang tindih dengan foto */
+    text-align: left; /* Mengatur agar konten di dalam about-founder-info rata kiri */
+    margin-top: 20px; /* Memberi jarak positif dari gambar profil di atasnya */
     position: relative;
     z-index: 2;
 }
 
 .founder-link {
-    display: inline-block;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start; /* Mengatur agar item di dalam founder-link (tanda tangan dan nama) rata kiri */
     transition: transform 0.3s ease;
 }
 
@@ -786,11 +790,11 @@ a {
 }
 
 .founder-signature {
-    width: 100%;
-    max-width: 220px; /* Diatur berdasarkan lebar agar sejajar dengan panjang teks nama */
+    width: 220px; /* Diatur berdasarkan lebar agar sejajar dengan panjang teks nama */
+    max-width: 100%;
     height: auto;
-    opacity: 0.85;
-    margin-bottom: -55px; /* Margin negatif ditarik ekstrim agar tanda tangan persis menempel di nama */
+    opacity: 0.85; /* Sedikit transparan */
+    margin-bottom: -45px; /* Merapatkan jarak antara tanda tangan dan nama */
     filter: brightness(0) invert(1); /* Mengubah warna hitam pada gambar menjadi putih murni */
 }
 
@@ -799,8 +803,11 @@ a {
     color: var(--accent-orange);
     font-size: 1.25rem;
     letter-spacing: 3px;
-    margin: 0 0 5px 0;
+    margin: 0;
     font-weight: 600;
+    text-transform: uppercase; /* Mengubah teks nama menjadi huruf kapital semua sesuai permintaan */
+    position: relative; /* Menjamin nama selalu bisa diklik & dirender di atas coretan */
+    z-index: 1;
 }
 
 .founder-title {
@@ -808,6 +815,7 @@ a {
     font-size: 0.85rem;
     letter-spacing: 2px;
     text-transform: uppercase;
+    margin-top: 5px;
 }
 
 .about-content {
@@ -1106,6 +1114,29 @@ a {
     font-size: 0.95rem;
     max-width: 350px;
     line-height: 1.8;
+}
+
+.footer-signature {
+    max-width: 180px;
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    opacity: 0.9;
+    filter: brightness(0) invert(1);
+    display: block;
+}
+
+.footer-brand .footer-signature-name {
+    font-family: var(--font-heading);
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-top: -38px; /* Margin ditarik LEBIH ekstrim agar rapat */
+    width: 180px; /* Menyamakan lebar dengan gambar tanda tangan */
+    text-align: center; /* Membuat nama persis center/seimbang dengan gambar */
+    position: relative;
+    z-index: 1;
 }
 
 .footer-links h4, .footer-social h4 {
@@ -1677,6 +1708,13 @@ a {
     .toast-notification {
         width: 90%;
         text-align: center;
+    }
+    .footer-signature {
+        max-width: 140px;
+    }
+    .footer-brand .footer-signature-name {
+        width: 140px; /* Menyamakan untuk tampilan HP */
+        margin-top: -30px;
     }
     .back-to-top {
         bottom: 80px;
