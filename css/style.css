@@ -768,7 +768,7 @@ a {
 }
 
 .about-founder-info {
-    text-align: left; /* Mengatur agar konten di dalam about-founder-info rata kiri */
+    text-align: center; /* Konten info founder (link tanda tangan) kita buat di tengah */
     margin-top: 20px; /* Memberi jarak positif dari gambar profil di atasnya */
     position: relative;
     z-index: 2;
@@ -777,7 +777,7 @@ a {
 .founder-link {
     display: inline-flex;
     flex-direction: column;
-    align-items: flex-start; /* Mengatur agar item di dalam founder-link (tanda tangan dan nama) rata kiri */
+    align-items: center; /* Tanda tangan & nama kita pusatkan */
     transition: transform 0.3s ease;
 }
 
